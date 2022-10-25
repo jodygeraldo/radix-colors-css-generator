@@ -36,7 +36,7 @@ export default function Checkbox({
 			<input
 				type="checkbox"
 				id={id}
-				className="h-6 w-6 rounded border-gray-7 bg-gray-3 text-gray-5 focus:ring-gray-8 focus:ring-offset-gray-1"
+				className="h-6 w-6 rounded border-gray-7 bg-gray-3 text-gray-9 focus:ring-gray-8 focus:ring-offset-gray-1"
 				{...props}
 			/>
 		</fieldset>
