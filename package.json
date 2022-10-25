@@ -1,0 +1,59 @@
+{
+	"private": true,
+	"sideEffects": false,
+	"scripts": {
+		"generate:css": "tailwindcss -i app/styles/tailwind.css -o app/tailwind.css",
+		"build:css": "npm run generate:css -- -m",
+		"build:remix": "remix build",
+		"build": "run-s \"build:*\"",
+		"dev:css": "npm run generate:css -- -w",
+		"dev:remix": "remix watch",
+		"dev:wrangler": "cross-env NODE_ENV=development wrangler pages dev ./public --local",
+		"dev": "remix build && run-p \"dev:*\"",
+		"start": "cross-env NODE_ENV=production npm run dev:wrangler",
+		"fmt": "prettier --write --cache .",
+		"lint": "eslint --cache --cache-location ./node_modules/.cache/eslint --ignore-path .gitignore .",
+		"typecheck": "tsc -b",
+		"test": "playwright test",
+		"validate": "run-p fmt lint typecheck test"
+	},
+	"dependencies": {
+		"@radix-ui/colors": "^0.1.8",
+		"@remix-run/cloudflare": "^1.7.3",
+		"@remix-run/cloudflare-pages": "^1.7.3",
+		"@remix-run/react": "^1.7.3",
+		"clsx": "^1.2.1",
+		"cross-env": "^7.0.3",
+		"js-beautify": "^1.14.6",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-syntax-highlighter": "^15.5.0",
+		"tiny-invariant": "^1.2.0",
+		"zod": "^3.19.1",
+		"zodix": "^0.2.0"
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "^3.16.0",
+		"@playwright/test": "^1.27.1",
+		"@remix-run/dev": "^1.7.3",
+		"@remix-run/eslint-config": "^1.7.3",
+		"@tailwindcss/forms": "^0.5.3",
+		"@types/js-beautify": "^1.13.3",
+		"@types/react": "^18.0.22",
+		"@types/react-dom": "^18.0.7",
+		"@types/react-syntax-highlighter": "^15.5.5",
+		"autoprefixer": "^10.4.12",
+		"eslint": "^8.24.0",
+		"eslint-config-prettier": "^8.5.0",
+		"npm-run-all": "^4.1.5",
+		"postcss": "^8.4.17",
+		"prettier": "^2.7.1",
+		"prettier-plugin-tailwindcss": "^0.1.13",
+		"tailwindcss": "^3.2.1",
+		"typescript": "^4.7.4",
+		"wrangler": "^2.1.6"
+	},
+	"engines": {
+		"node": ">=16.13"
+	}
+}
